@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="col" routerLink="">
+        <button class="btn mainBg border-0">
+            <p class="text-danger">Home</p>
+        </button>
+    </div>
+</div>
+<div class="container d-flex align-items-center justify-content-center vh-100">
+    <div class="card" style="width: 600px;">
+        <div class="card-header bg-info text-white text-center">
+            <h4>Register</h4>
+        </div>
+        <div class="card-body">
+            <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+                <div class="mb-3">
+                    <label for="inputEmail" class="form-label">Email address</label>
+                    <input ngModel name="email" type="email" class="form-control" id="inputEmail" placeholder="email"
+                        #Email="ngModel" required email [ngClass]="{'is-invalid': Email.touched && Email.invalid}">
+
+                    <div class="alert alert-danger" *ngIf="Email.touched && Email.invalid">
+
+
+                        <div *ngIf="Email.errors?.['required']">Email Cannot be Empty</div>
+                        <div *ngIf="Email.errors?.['email']">Please enter a valid Email address</div>
+
+
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="inputPassword" class="form-label">Password</label>
+                    <div class="input-group">
+                        <input ngModel name="password" [type]="passwordVisible ? 'text' : 'password'"
+                            class="form-control" id="inputPassword" #Password="ngModel" placeholder="password"
+                            [ngClass]="{'is-invalid': Password.touched && Password.invalid}" required>
+
+                        <div><span class="input-group-text" id="passwordToggle" (click)="togglePassword()">
+                                <i [class]="passwordVisible ? 'fas fa-eye' : 'fas fa-eye-slash'"></i>
+                            </span></div>
+
+
+                    </div>
+                    <div class="alert alert-danger" *ngIf="Password.touched && Password.invalid">Password Cannot be
+                        Empty</div>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Register</button>
+                </div>
+            </form>
+        </div>
+        <div class="row mb-1">
+            <div class="col-1 d-flex justify-content-end mt-2">
+            </div>
+            <div class="col-5 d-flex justify-content-end mt-2">
+                <p class="text-success text-sm"> Already have an Account? </p>
+            </div>
+
+            <div class="col-1 d-flex justify-content-start">
+                <button class="btn  border-0 rounded  text-warning" routerLink="/login">
+                    <p>Login</p>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

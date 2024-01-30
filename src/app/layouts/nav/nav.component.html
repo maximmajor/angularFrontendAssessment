@@ -1,0 +1,41 @@
+<div class="container mt-5">
+    <div class="col" routerLink="">
+        <button class="btn mainBg border-0">
+            <p class="text-danger">Home</p>
+        </button>
+    </div>
+    <nav class="navbar navbar-expand navbar-dark bg-muted">
+        <div class="container">
+            <ul class="navbar-nav mr-auto ">
+                <li class="nav-item">
+                    <p class="navbar-text text-black">
+                        <span class="text-info"><i class="fas fa-map-marker-alt"></i> Location:</span> {{city}},
+                        {{region}}, {{country}}.
+                    </p>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto col-1">
+                <li class="nav-item">
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a *ngIf="!isLoggedIn" routerLink="/login" class="nav-link btn"
+                        style="background-color: #3498db; color: #fff;">
+                        <i class="fas fa-user-plus"></i> Login
+                    </a>
+                    <a *ngIf="isLoggedIn" (click)="logout()" class="nav-link btn"
+                        style="background-color: #3498db; color: #fff;">
+                        <i class="fas fa-user-plus"></i> LogOut
+                    </a>
+                </li>
+
+
+
+            </ul>
+
+        </div>
+    </nav>
+</div>

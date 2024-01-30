@@ -1,0 +1,51 @@
+<div class="container mt-5">
+    <div class="jumbotron text-center">
+        <h4 class="display-4">Welcome<span class="text-info"></span></h4>
+        <p class="lead">Explore and enjoy our fantastic features!</p>
+    </div>
+
+    <app-nav></app-nav>
+
+    <div class="row mt-4 text-center" routerLink="/register">
+        <!-- When not logged In -->
+
+        <div *ngIf="!isLoggedIn" class="col-md-6 mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Create Account</h5>
+                    <p class="card-text">Register or Login to Start Exploring.</p>
+                    <a routerLink="/register" class="btn btn-info">
+                        <i class="fas fa-user-cog"></i> sign up
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- My Account Link -->
+        <div *ngIf="isLoggedIn" class="col-md-6 mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Account</h5>
+                    <p class="card-text">Manage and Update your account details.</p>
+                    <a routerLink="/account" class="btn btn-info">
+                        <i class="fas fa-user-cog"></i> My Account
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Users Link -->
+        <div class="col-md-6 mt-5" routerLink="/users">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Users</h5>
+                    <p class="card-text">Explore and interact with other users.</p>
+                    <a routerLink="/users" class="btn btn-warning">
+                        <i class="fas fa-users"></i> Users
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
